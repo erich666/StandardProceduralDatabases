@@ -1,0 +1,144 @@
+# makefile for standard procedural databases
+# Modified to support DJGPP+GRX graphics -- Antonio Costa  INESC
+
+CC=gcc -O -m486 -s
+CC2=gcc -m486 -s
+SUFOBJ=.o
+SUFEXE=.exe
+INC=def.h lib.h
+LIBOBJ=drv_ibm$(SUFOBJ) libini$(SUFOBJ) libinf$(SUFOBJ) libpr1$(SUFOBJ) libpr2$(SUFOBJ) libpr3$(SUFOBJ) libply$(SUFOBJ) libdmp$(SUFOBJ) libvec$(SUFOBJ) libtx$(SUFOBJ)
+BASELIB=-lgrx -lm
+
+all:		balls gears mount rings teapot tetra tree \
+		readdxf readnff readobj \
+		sample lattice shells jacks sombrero nurbtst
+
+drv_ibm$(SUFOBJ):	$(INC) drv_ibm.c drv.h
+		$(CC) -DGRX -c drv_ibm.c
+
+libini$(SUFOBJ):	$(INC) libini.c
+		$(CC) -c libini.c
+
+libinf$(SUFOBJ):	$(INC) libinf.c
+		$(CC) -c libinf.c
+
+libpr1$(SUFOBJ):	$(INC) libpr1.c
+		$(CC) -c libpr1.c
+
+libpr2$(SUFOBJ):	$(INC) libpr2.c
+		$(CC) -c libpr2.c
+
+libpr3$(SUFOBJ):	$(INC) libpr3.c
+		$(CC) -c libpr3.c
+
+libply$(SUFOBJ):	$(INC) libply.c
+		$(CC) -c libply.c
+
+libdmp$(SUFOBJ):	$(INC) libdmp.c
+		$(CC) -c libdmp.c
+
+libvec$(SUFOBJ):	$(INC) libvec.c
+		$(CC) -c libvec.c
+
+libtx$(SUFOBJ):		$(INC) libtx.c
+		$(CC) -c libtx.c
+
+balls$(EXE):		$(LIBOBJ) balls.c
+		$(CC) -o balls$(EXE) balls.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+gears$(EXE):		$(LIBOBJ) gears.c
+		$(CC) -o gears$(EXE) gears.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+mount$(EXE):		$(LIBOBJ) mount.c
+		$(CC) -o mount$(EXE) mount.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+rings$(EXE):		$(LIBOBJ) rings.c
+		$(CC) -o rings$(EXE) rings.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+teapot$(EXE):		$(LIBOBJ) teapot.c
+		$(CC) -o teapot$(EXE) teapot.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+tetra$(EXE):		$(LIBOBJ) tetra.c
+		$(CC) -o tetra$(EXE) tetra.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+tree$(EXE):		$(LIBOBJ) tree.c
+		$(CC) -o tree$(EXE) tree.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+readdxf$(EXE):		$(LIBOBJ) readdxf.c
+		$(CC) -o readdxf$(EXE) readdxf.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+readnff$(EXE):		$(LIBOBJ) readnff.c
+		$(CC) -o readnff$(EXE) readnff.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+readobj$(EXE):		$(LIBOBJ) readobj.c
+		$(CC) -o readobj$(EXE) readobj.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+sample$(EXE):		$(LIBOBJ) sample.c
+		$(CC) -o sample$(EXE) sample.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+lattice$(EXE):		$(LIBOBJ) lattice.c
+		$(CC) -o lattice$(EXE) lattice.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+shells$(EXE):		$(LIBOBJ) shells.c
+		$(CC) -o shells$(EXE) shells.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+jacks$(EXE):		$(LIBOBJ) jacks.c
+		$(CC) -o jacks$(EXE) jacks.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+sombrero$(EXE):		$(LIBOBJ) sombrero.c
+		$(CC) -o sombrero$(EXE) sombrero.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+nurbtst$(EXE):		$(LIBOBJ) nurbtst.c
+		$(CC) -o nurbtst$(EXE) nurbtst.c $(LIBOBJ) $(BASELIB)
+		aout2exe $*
+		@del $* >nul
+
+clean:
+		@del balls.exe >nul
+		@del gears.exe >nul
+		@del mount.exe >nul
+		@del rings.exe >nul
+		@del teapot.exe >nul
+		@del tetra.exe >nul
+		@del tree.exe >nul
+		@del readdxf.exe >nul
+		@del readnff.exe >nul
+		@del readobj.exe >nul
+		@del sample.exe >nul
+		@del lattice.exe >nul
+		@del shells.exe >nul
+		@del jacks.exe >nul
+		@del sombrero.exe >nul
+		@del nurbtst.exe >nul
+		@del *.o >nul
+		@echo Clean done.

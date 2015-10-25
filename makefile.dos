@@ -1,0 +1,99 @@
+# Makefile for the SPD stuff - generic for IBM clones,
+# modify to support whatever compiler you have.
+CC	=cc
+#
+#CFLAGS	=-mx
+CFLAGS	=-O -Aa
+EXE	= exe
+OBJ	= o
+
+# DOS version:
+#SPDOBJS	= drv_ibm.$(OBJ) libini.$(OBJ) libinf.$(OBJ) libpr1.$(OBJ) libpr2.$(OBJ) libpr3.$(OBJ) libply.$(OBJ) libdmp.$(OBJ) libvec.$(OBJ) libtx.$(OBJ)
+# other versions...
+SPDOBJS	= drv_null.$(OBJ) libini.$(OBJ) libinf.$(OBJ) libpr1.$(OBJ) libpr2.$(OBJ) libpr3.$(OBJ) libply.$(OBJ) libdmp.$(OBJ) libvec.$(OBJ) libtx.$(OBJ)
+
+# Zortech specific graphics library
+#LIBFILES=fg.lib
+#LIBFILES=fgp.lib
+LIBFILES=-lm
+
+all:	balls.$(EXE) gears.$(EXE) mount.$(EXE) rings.$(EXE) teapot.$(EXE) \
+	tetra.$(EXE) tree.$(EXE) \
+	readdxf.$(EXE) readnff.$(EXE) readobj.$(EXE) \
+	sample.$(EXE) lattice.$(EXE) shells.$(EXE) jacks.$(EXE) \
+	sombrero.$(EXE) nurbtst.$(EXE)
+
+# Rule to compile c progs into obj's
+.c.$(OBJ):
+	$(CC) $(CFLAGS) -c $<
+
+# DOS only
+#drv_ibm.$(OBJ):	drv_ibm.c drv.h def.h
+
+drv_null.$(OBJ):	drv_null.c drv.h def.h
+
+libini.$(OBJ): libini.c lib.h libvec.h drv.h
+
+libinf.$(OBJ): libinf.c lib.h libvec.h drv.h
+
+libpr1.$(OBJ): libpr1.c lib.h libvec.h drv.h
+
+libpr2.$(OBJ): libpr2.c lib.h libvec.h drv.h
+
+libpr3.$(OBJ): libpr3.c lib.h libvec.h drv.h
+
+libply.$(OBJ): libply.c lib.h libvec.h drv.h
+
+libdmp.$(OBJ): libdmp.c lib.h libvec.h drv.h
+
+libvec.$(OBJ):	libvec.c libvec.h
+
+libtx.$(OBJ): libtx.c lib.h libvec.h drv.h
+
+balls.$(EXE):	balls.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) balls.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+gears.$(EXE):	gears.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) gears.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+mount.$(EXE):	mount.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) mount.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+rings.$(EXE):	rings.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) rings.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+teapot.$(EXE):	teapot.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) teapot.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+tetra.$(EXE):	tetra.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) tetra.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+tree.$(EXE):	tree.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) tree.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+readdxf.$(EXE):	readdxf.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) readdxf.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+readnff.$(EXE):	readnff.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) readnff.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+readobj.$(EXE):	readobj.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) readobj.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+sample.$(EXE):	sample.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) sample.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+lattice.$(EXE):	lattice.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) lattice.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+shells.$(EXE):	shells.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) shells.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+jacks.$(EXE):	jacks.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) jacks.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+sombrero.$(EXE): sombrero.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) sombrero.$(OBJ) $(SPDOBJS) $(LIBFILES)
+
+nurbtst.$(EXE):	nurbtst.$(OBJ) $(SPDOBJS)
+	$(CC) $(CFLAGS) nurbtst.$(OBJ) $(SPDOBJS) $(LIBFILES)

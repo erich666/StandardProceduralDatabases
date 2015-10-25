@@ -1,0 +1,58 @@
+The SPD distribution contains the following files:
+
+    Manifest.txt - what you are now reading
+    Readme.txt - readme file for what the SPD is about
+    NFF.txt - a description of the Neutral File Format used in the SPD
+    /docs - the web page at http://www.realtimerendering.com/resources/SPD/
+
+    makefile - generic makefile (no display possible), same as null makefile
+    makefile.dj  - IBM PC DJGPP+GRX makefile
+    makefile.dos - IBM PC DOS generic makefile
+    makefile.hp  - Hewlett Packard HPUX makefile (includes X11 displayer)
+    makefile.nul - null makefile (default generic)
+    makefile.x11 - X11R6 makefile
+
+    def.h - some useful "C" definitions
+    lib.h - globals and conversion/output library routine declarations
+    libdmp.c - library of post-process dump routines
+    libinf.c - library of info routines
+    libini.c - library of initialization routines
+    libply.c - library of polygon face routines
+    libpr1.c - library of general shape primitive routines, basic support
+    libpr2.c - library of general shape primitive routines, simple
+    libpr3.c - library of general shape primitive routines, more complex
+    libtx.c - library of texturing support routines
+    libvec.c - library of vector & matrix routines
+    libvec.h - vector & matrix library defines and routine declarations
+
+    nff2rad.c - NFF to Radiance format converter by Greg Ward
+
+    balls.c - fractal ball object (a.k.a. sphereflake) generator
+    gears.c - 3D array of interlocking gears generator
+    mount.c - fractal mountain and 4 glass ball generator
+    rings.c - pyramid of dodecahedral rings generator
+    teapot.c - the famous teapot on a checkerboard generator
+    tetra.c - recursive tetrahedra generator
+    tree.c - tree generator
+
+    drv.h - display driver definitions
+    drv_hp.c - HP Starbase/X11 display driver
+    drv_ibm.c - IBM PC VGA display driver
+    drv_mac.c - Macintosh display driver
+    drv_null.c - generic driver template (usable, but does not display)
+    drv_x11.c - X11R6 graphics display driver
+
+    readdxf.c - DXF file reader/displayer/converter
+    readnff.c - NFF file reader/displayer/converter
+    readobj.c - Wavefront OBJ file reader/displayer/converter
+    view.dat - view for DXF and OBJ displayer
+    spd.sl - material for RIB export
+
+    sample.c - an example file showing a simple scene
+    lattice.c - cubic lattice generator
+    shells.c - "shell" generator (but don't try to look inside!)
+    sombrero.c - hat function heightfield output example
+    jacks.c - recursive jacks
+    nurbtst.c - NURBS routine tester
+
+[end]

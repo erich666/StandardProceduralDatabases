@@ -1,0 +1,5 @@
+5 -20 0		# from
+0 0 0		# at
+0 0 1		# up
+20		# angle
+# the above is a default view file for readdxf
