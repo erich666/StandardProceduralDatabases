@@ -16,7 +16,7 @@ This code is in the public domain using the [CC0 1.0 Universal (CC0 1.0) Public 
 > * Unless expressly stated otherwise, the person who associated a work with this deed makes no warranties about the work, and disclaims liability for all uses of the work, to the fullest extent permitted by applicable law.
 > * When using or citing the work, you should not imply endorsement by the author or the affirmer.
 
-If this license does not apply in a country, then the
+If this license does not apply in a country or is otherwise unrecognized, then the
 code is licensed under the [MIT license](https://opensource.org/licenses/MIT) (see [the logic for this](http://www.realtimerendering.com/blog/cc0-public-domain-for-the-world/)). That is:
 
 > Copyright (c) 2015 Eric Haines
