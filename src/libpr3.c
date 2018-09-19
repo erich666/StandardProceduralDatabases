@@ -48,9 +48,10 @@ int type;
 		/* Need to create a new name for the height file */
 		filename = malloc(10 * sizeof(char));
 		if (filename == NULL) return NULL;
-		sprintf(filename, "hf%03d.tga", hfcount++);
+		sprintf_s(filename, 10, "hf%03d.tga", hfcount++);
     }
-    if ((file = fopen(filename, "wb")) == NULL)
+	fopen_s(&file, filename, "wb");
+    if (file == NULL)
 		return NULL;
 
     if (type == 0) {
@@ -837,6 +838,7 @@ int curve_format;
     float *nknotvec, *mknotvec;
     COORD4 **points;
     int rat_flag, nknots, mknots, i, j;
+	rat_flag = 0;
 	
     /* Copy the data into local structures. Build the knot vectors if
 	   they weren't passed in. */

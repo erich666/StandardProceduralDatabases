@@ -331,7 +331,7 @@ int     *p_size, *p_rdr, *p_curve ;
 				if ( num_arg < argc-1 ) {
 					if ( argv[num_arg+1][0] != '-' ) {
 						num_arg++ ;
-						sscanf( argv[num_arg], "%d", &val ) ;
+						sscanf_s( argv[num_arg], "%d", &val ) ;
 						if ( val < 1 ) {
 							fprintf( stderr,
 								"bad resolution value %s given\n",
@@ -346,7 +346,7 @@ int     *p_size, *p_rdr, *p_curve ;
 				break ;
 			case 'r':       /* renderer selection */
 				if ( ++num_arg < argc ) {
-					sscanf( argv[num_arg], "%d", &val ) ;
+					sscanf_s( argv[num_arg], "%d", &val ) ;
 					if ( val < OUTPUT_VIDEO || val >= OUTPUT_DELAYED ) {
 						fprintf( stderr,
 							"bad renderer value %d given\n",val);
@@ -362,7 +362,7 @@ int     *p_size, *p_rdr, *p_curve ;
 				break ;
 			case 's':       /* size selection */
 				if ( ++num_arg < argc ) {
-					sscanf( argv[num_arg], "%d", &val ) ;
+					sscanf_s( argv[num_arg], "%d", &val ) ;
 					if ( val < 1 ) {
 						fprintf( stderr,
 							"bad size value %d given\n",val);
@@ -442,7 +442,7 @@ char *p_infname;
 					return( TRUE ) ;
 				} else {
 					if ( ++num_arg < argc ) {
-						sscanf( argv[num_arg], "%s", p_infname ) ;
+						sscanf_s( argv[num_arg], "%s", p_infname, 256 ) ;
 					} else {
 						fprintf( stderr, "not enough args for -f option\n" ) ;
 						show_read_usage();
@@ -452,7 +452,7 @@ char *p_infname;
 				break ;
 			case 'r':       /* renderer selection */
 				if ( ++num_arg < argc ) {
-					sscanf( argv[num_arg], "%d", &val ) ;
+					sscanf_s( argv[num_arg], "%d", &val ) ;
 					if ( val < OUTPUT_VIDEO || val >= OUTPUT_DELAYED ) {
 						fprintf( stderr,
 							"bad renderer value %d given\n",val);

@@ -100,7 +100,7 @@ dump_obj_file PARAMS((void))
 	temp_obj = temp_obj->next_object) {
 		
 		PLATFORM_MULTITASK();
-		fprintf(gOutfile, "%f ", temp_obj->object_data.polygon.tot_vert);
+		fprintf(gOutfile, "%d ", temp_obj->object_data.polygon.tot_vert);
 		for (i=0;i<(int)temp_obj->object_data.polygon.tot_vert;i++) {
 			fprintf(gOutfile, "%d", vcnt + i + 1);
 			if (i < (int)temp_obj->object_data.polygon.tot_vert - 1)

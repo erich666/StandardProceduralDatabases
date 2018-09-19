@@ -21,7 +21,7 @@
 /* defines/constants section */
 
 typedef struct tx_struct *tx_ptr;
-typedef struct tx_struct {
+struct tx_struct {
    MATRIX tx;
    tx_ptr next;
    };

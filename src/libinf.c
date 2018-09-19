@@ -30,7 +30,7 @@ FILE * gStdout_file = NULL;
 /*-----------------------------------------------------------------*/
 /* Here are some local variables that are used to control things like
    the current output file, current texture, ... */
-FILE *gOutfile      = stdout;
+FILE *gOutfile;
 char *gTexture_name = NULL;
 int  gTexture_count = 0;
 int  gObject_count = 0;
