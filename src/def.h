@@ -184,7 +184,7 @@ typedef double MATRIX[4][4];  /* row major form */
 typedef double COORD3[3];
 typedef double COORD4[4];
 
-/* COORD3/COORD4 indeces */
+/* COORD3/COORD4 indices */
 #define X 0
 #define Y 1
 #define Z 2
