@@ -63,11 +63,15 @@ COORD4 center, direction;
 		--depth ;
 		
 		/* rotation matrix to new axis from +Z axis */
-		if ( direction[Z] >= 1.0 ) {
+		/* If direction is (almost) identical to the Z axis, no rotation needed. */
+		/* We test with an epsilon built in here because child_dir, below, 
+		   may be slightly less than 1.0 in length. */
+		if ( direction[Z] >= 0.9999 ) {
 			/* identity matrix */
 			lib_create_identity_matrix(mx);
 		}
-		else if ( direction[Z] <= -1.0 ) {
+		/* If direction is (almost) identical to the -Z axis, rotate 180 degrees. */
+		else if ( direction[Z] <= -0.9999 ) {
 			lib_create_rotate_matrix(mx, Y_AXIS, PI);
 		}
 		else {
